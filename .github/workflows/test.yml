@@ -1,0 +1,26 @@
+
+name: Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-24.04-arm
+    steps:
+    - uses: actions/checkout@master
+    - name: Build
+      run: make -j8
+    - name: Load driver
+      run: |
+        make
+    - name: Collect System Info. And Benchmark 
+      run: |
+        sh collect.sh
+        tar czf cobalt100-vm-ubuntu.tgz results.txt
+    - name: Upload test information
+      uses: actions/upload-artifact@v4
+      with:
+        name: results
+        path: cobalt100-vm-ubuntu.tgz
