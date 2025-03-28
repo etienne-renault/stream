@@ -17,7 +17,7 @@ jobs:
         make
     - name: Collect System Info. And Benchmark 
       run: |
-        sh collect.sh
+        ./collect.sh
         tar czf cobalt100-vm-ubuntu.tgz results.txt
     - name: Upload test information
       uses: actions/upload-artifact@v4

@@ -29,11 +29,6 @@
     echo "CPU Architecture"
     echo "----------------"
     lscpu --all --extended
-
-    echo
-    echo "SIMD"
-    echo "----------------"
-    cat /proc/sys/abi/sve_default_vector_length
  
     echo
     echo "Compiler"
