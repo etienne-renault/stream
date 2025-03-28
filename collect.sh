@@ -1,3 +1,5 @@
+#! /bin/bash
+
 # Display environment 
 (
     echo "Kernel"
